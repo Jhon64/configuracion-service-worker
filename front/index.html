@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWA</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./tailwindcss-material.css" />
+    <script src="./tailwindcss.js"></script>
+    <script src="./index.js"></script>
+    <script src="./app.js"></script>
+    <script src="./sw.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  </head>
+
+  <body class="bg-gray-400 h-screen">
+    <div
+      class="flex justify-center items-center mx-14 h-full w-full justify-items-center"
+    >
+    <div class="border border-white rounded bg-white shadow-purple-500 p-4">
+      <h3>Operaciones para Service Worker JS</h3>
+      <h4>Status service Worker : <label id="statusServiceWorker">-</label></h4>
+      <h5>Estado de Red : <label id="statusNetwork"></label></h5>
+      <br />
+
+      <div class="flex"> 
+        <label class="block p-2">Registrar Servicio</label>
+        <button class="border hidden bg-blue-500 px-2 rounded-md text-white"
+        onclick="registerWorker()"  id="btnRegistrarSW">Registrar</button>
+        <button class="border hidden bg-blue-500 px-2 rounded-md text-white"
+        onclick="eliminarServiceWorker()" id="btnEliminarSW">Eliminar</button>
+      </div>
+
+      <div class="flex"> 
+        <label class="block p-2">Activar Notificacion Push</label>
+        <button  onclick="activeNotificacionesPush()" class="border border-purple-500 px-2 rounded-md text-purple-900">Activar</button>
+      </div>
+
+      <div class="block"> 
+        <label class="block p-2">Enviar notificación Push</label>
+        <div class="flex">
+          <textarea name="" id="textNotificacion" cols="30" rows="2"></textarea>
+          <button onclick="enviarNotificacionPush()" class="border bg-gray-600 px-2 rounded-md text-white">Enviar</button>
+        </div>
+        
+      </div>
+
+      Network status:
+      <div id="network" style="display: inline"></div>
+
+      <p>
+        One-off background sync doesn't require permissions, but notifications
+        do, and that's how we're going to tell you it worked.
+      </p>
+
+      <button class="register bg-purple-500 text-white rounded px-4 py-2"
+      onclick="registerWorker()"
+      >Register background sync</button>
+
+      <div class="log"></div>
+      <br /><br />
+      <p>
+        <small> To use this site, run Chrome version >= 49 </small>
+      </p>
+    </div>
+    </div>
+  </body>
+</html>

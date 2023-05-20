@@ -1,0 +1,61 @@
+mode: dev
+server:
+  port: 3000
+bcrypt:
+  salto: 10
+  secretKey: myKey
+database:
+  mongo:
+    host: '127.0.0.1'
+    user:
+    port: 27017
+    password:
+    database: 'tienda-online'
+    max: 20
+    idleTimeoutMillis: 30000
+    connectionTimeoutMillis: 2000
+auth:
+  session:
+    secret: mySecretKey
+    resave: false
+    saveUninitialized: false
+    cookie:
+      secure: true
+jwt:
+  secretKey: tiendita
+  algorithm: RS256
+  expiresIn: 12h
+
+#PRODUCCION
+
+# server:
+#   port: 5500
+# bcrypt:
+#   salto: 10
+#   secretKey: myKey
+# database:
+#   redis:
+#     username: default
+#     password: AVNS_VFNCGlD_vSEcnJmz1Eb
+#     host: redis-db-do-user-13947813-0.b.db.ondigitalocean.com
+#     port: 25061
+#   mongo:
+#     host: 'mongodb + srv://mongodb-0335c90d.mongo.ondigitalocean.com'
+#     user: 'dodmin'
+#     port: 27017
+#     password: 'Y1OL25J4DQ3B076t'
+#     database: 'admin'
+#     max: 20
+#     idleTimeoutMillis: 30000
+#     connectionTimeoutMillis: 2000
+# auth:
+#   session:
+#     secret: mySecretKey
+#     resave: false
+#     saveUninitialized: false
+#     cookie:
+#       secure: true
+# jwt:
+#   secretKey: tiendita
+#   algorithm: RS256
+#   expiresIn: 12h
